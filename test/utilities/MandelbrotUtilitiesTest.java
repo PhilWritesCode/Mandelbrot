@@ -27,7 +27,7 @@ public class MandelbrotUtilitiesTest {
     public void test_iterationsToExcludeFromMandelbrotSet_returnsReasonableValue() {
         Assert.assertTrue("(0+0i) is in the Mandelbrot Set", MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(zero) == 0);
         Assert.assertTrue("(-1+0i) is in the Mandelbrot Set", MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(negOneZero) == 0);
-        Assert.assertTrue("(-.05+.75i) is in the Mandelbrot Set", MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(negPointFivePointSevenFive) == 0);
+        Assert.assertTrue("(-.05+.75i) is in the Mandelbrot Set", MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(negPointZeroFivePointSevenFive) == 0);
 
         Assert.assertFalse("(-1+1i) is not in the Mandelbrot Set", MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(negOneOne) == 0);
         Assert.assertFalse("(1-3i) is not in the Mandelbrot Set", MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(oneNegThree) == 0);
