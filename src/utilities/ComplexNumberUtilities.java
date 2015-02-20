@@ -24,7 +24,7 @@ public class ComplexNumberUtilities {
      * @return the product of num1*num2
      */
     public static ComplexNumber multiply(ComplexNumber num1, ComplexNumber num2) {
-        float realComponent, imaginaryComponent;
+        double realComponent, imaginaryComponent;
 
         realComponent = num1.getRealComponent()*num2.getRealComponent() - num1.getImaginaryComponent()*num2.getImaginaryComponent();
         imaginaryComponent = num1.getRealComponent()*num2.getImaginaryComponent() + num1.getImaginaryComponent()*num2.getRealComponent();
@@ -39,7 +39,7 @@ public class ComplexNumberUtilities {
      * @return the sum of num1+num2
      */
     public static ComplexNumber add(ComplexNumber num1, ComplexNumber num2) {
-        float realComponent, imaginaryComponent;
+        double realComponent, imaginaryComponent;
 
         realComponent = num1.getRealComponent() + num2.getRealComponent();
         imaginaryComponent = num1.getImaginaryComponent() + num2.getImaginaryComponent();

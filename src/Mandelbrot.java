@@ -38,14 +38,15 @@ class Mandelbrot {
     public static void main(String [] args) {
 
         if(args == null || args.length < 4) {
-            throw new IllegalArgumentException("Invalid Arguments.  Please provide four values, representing boundaries on the Complex Plane");
+            System.out.println("Invalid Arguments.  Please provide four values, representing boundaries on the Complex Plane.  Defaulting to -2 1.5 1 -1.5...");
+            args = new String[] {"-2","1.5","1","-1.5"};
         }
 
         // Set boundaries for graph
-        float upperLeftReal = Float.parseFloat(args[0]);
-        float upperLeftImaginary = Float.parseFloat(args[1]);
-        float lowerRightReal = Float.parseFloat(args[2]);
-        float lowerRightImaginary = Float.parseFloat(args[3]);
+        double upperLeftReal = Double.parseDouble(args[0]);
+        double upperLeftImaginary = Double.parseDouble(args[1]);
+        double lowerRightReal = Double.parseDouble(args[2]);
+        double lowerRightImaginary = Double.parseDouble(args[3]);
 
         /**
          * Scale numbers for visibility.
@@ -74,14 +75,14 @@ class Mandelbrot {
      * on the complex plane from the Mandelbrot Set.  Each point in this pixelMatrix represents a point within the boundaries of the complex
      * plane provided by the parameters to this application.
      */
-    private static int[][] generatePixelMap(float upperLeftReal, float upperLeftImaginary, float lowerRightReal, float lowerRightImaginary, int scalingFactor) {
+    private static int[][] generatePixelMap(double upperLeftReal, double upperLeftImaginary, double lowerRightReal, double lowerRightImaginary, int scalingFactor) {
         System.out.print(PROCESSING_STARTING);
 
-        int[][] pixelMatrix = new int[(int)(upperLeftImaginary - lowerRightImaginary)+1][(int)(lowerRightReal - upperLeftReal)+1];
+        int[][] pixelMatrix = new int[(int)Math.ceil(upperLeftImaginary - lowerRightImaginary)+1][(int)Math.ceil(lowerRightReal - upperLeftReal)+1];
         int pixelRow = 0,pixelCol = 0;
 
-        for(float row = upperLeftImaginary; row > lowerRightImaginary; row--, pixelRow++, pixelCol = 0) {
-            for(float col = upperLeftReal; col < lowerRightReal; col++, pixelCol++) {
+        for(double row = upperLeftImaginary; row > lowerRightImaginary; row--, pixelRow++, pixelCol = 0) {
+            for(double col = upperLeftReal; col < lowerRightReal; col++, pixelCol++) {
                 pixelMatrix[pixelRow][pixelCol] = MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(new ComplexNumber(col / Math.pow(2, scalingFactor), row / Math.pow(2, scalingFactor)));
             }
         }

@@ -4,24 +4,19 @@ package resources;
  * Created by Phil on 2/18/2015.
  */
 public class ComplexNumber {
-    private float real;
-    private float imaginary;
+    private double real;
+    private double imaginary;
 
-    public ComplexNumber(float real, float imaginary) {
+    public ComplexNumber(double real, double imaginary) {
         this.real = real;
         this.imaginary = imaginary;
     }
 
-    public ComplexNumber(double real, double imaginary) {
-        this.real = (float)real;
-        this.imaginary = (float)imaginary;
-    }
-
-    public float getRealComponent() {
+    public double getRealComponent() {
         return this.real;
     }
 
-    public float getImaginaryComponent() {
+    public double getImaginaryComponent() {
         return this.imaginary;
     }
 }
