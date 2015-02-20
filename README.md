@@ -20,10 +20,10 @@ The application	displays the Mandelbrot Set for bounds passed as arguments:
  	                  |
  	                  |-----------------> (args[2],args[3])
 
- Sample input include:
- -2 1.5 1 -1.5 for the full set
- -0.736 0.226 -0.726 0.214 for a small sample
- .2869 .01429 .2870 .01427 for an interesting perspective
+ 	Sample input include:
+ 	-2 1.5 1 -1.5 for the full set
+ 	-0.736 0.226 -0.726 0.214 for a small sample
+ 	.2869 .01429 .2870 .01427 for an interesting perspective
 
 The application is launched from the command line:  java Mandelbrot -2 1.5 1 -1.5
 
