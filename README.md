@@ -26,3 +26,5 @@ Graph the Mandelbrot Set
 The application is launched from the command line:  java Mandelbrot -2 1.5 1 -1.5
 
 If no parameters are passed, or the passed parameters are invalid, the application will default to -2 1.5 1 -1.5, which displays the entire Mandelbrot Set.
+
+Disclaimer:  In researching the mathematics of complex numbers during the early phases of this application, I stumbled upon http://www.cs.unc.edu/~stotts/144/assignments/1/.  That site defines an assignment for what appears to be a UNC Computer Science class.  Since it dealt with exactly what I was trying to write, I used it as a guideline for my program -- you'll notice my input parameters are in the same format.  I did not attend UNC, and all code within this application is my own.
