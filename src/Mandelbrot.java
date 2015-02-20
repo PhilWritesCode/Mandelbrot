@@ -51,21 +51,23 @@ class Mandelbrot {
         /**
          * Scale numbers for visibility.
          *
-         * If neither axis on the given plane is at least 1000px, we double the size of the graph.  Continue doubling
-         * until at least one axis reaches 1000px.  This effectively "zooms in" on the portion of the Mandelbrot Set
-         * defined by the arguments.
+         * If neither axis on the given plane is at least 1000px, we find the scaling factor that will grow one of the axes to
+         * 1000px.  That scaling factor is then used to convert back to the real values during processing time.
          *
-         * If we change this to an 'OR' -- so that both axes are at least 1000px -- we end up with much larger images, but the
+         * If we change this to an 'OR' and Math.min() -- so that both axes are at least 1000px -- we end up with much larger images, but the
          * processing time can also become quite long.
          */
         System.out.print(SCALING_STARTING);
-        int scalingFactor = 0;
-        while(lowerRightReal - upperLeftReal < 1000 && upperLeftImaginary - lowerRightImaginary < 1000) {
-            scalingFactor++;
-            upperLeftReal *= 2;
-            upperLeftImaginary *= 2;
-            lowerRightReal *= 2;
-            lowerRightImaginary *= 2;
+        double scalingFactor = 0;
+        double graphWidth = lowerRightReal - upperLeftReal;
+        double graphHeight = upperLeftImaginary - lowerRightImaginary;
+
+        if(graphWidth < 1000 && graphHeight < 1000) {
+            scalingFactor = 1000/Math.max(graphHeight,graphWidth);
+            upperLeftReal *= scalingFactor;
+            upperLeftImaginary *= scalingFactor;
+            lowerRightReal *= scalingFactor;
+            lowerRightImaginary *= scalingFactor;
         }
         System.out.println(SEGMENT_COMPLETE);
 
@@ -78,15 +80,18 @@ class Mandelbrot {
      * on the complex plane from the Mandelbrot Set.  Each point in this pixelMatrix represents a point within the boundaries of the complex
      * plane provided by the parameters to this application.
      */
-    private static int[][] generatePixelMap(double upperLeftReal, double upperLeftImaginary, double lowerRightReal, double lowerRightImaginary, int scalingFactor) {
+    private static int[][] generatePixelMap(double upperLeftReal, double upperLeftImaginary, double lowerRightReal, double lowerRightImaginary, double scalingFactor) {
         System.out.print(PROCESSING_STARTING);
 
-        int[][] pixelMatrix = new int[(int)Math.ceil(upperLeftImaginary - lowerRightImaginary)+1][(int)Math.ceil(lowerRightReal - upperLeftReal)+1];
+        double graphWidth = lowerRightReal - upperLeftReal;
+        double graphHeight = upperLeftImaginary - lowerRightImaginary;
+
+        int[][] pixelMatrix = new int[(int)Math.ceil(graphHeight)][(int)Math.ceil(graphWidth)];
         int pixelRow = 0,pixelCol = 0;
 
         for(double row = upperLeftImaginary; row > lowerRightImaginary; row--, pixelRow++, pixelCol = 0) {
             for(double col = upperLeftReal; col < lowerRightReal; col++, pixelCol++) {
-                pixelMatrix[pixelRow][pixelCol] = MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(new ComplexNumber(col / Math.pow(2, scalingFactor), row / Math.pow(2, scalingFactor)));
+                pixelMatrix[pixelRow][pixelCol] = MandelbrotUtilities.iterationsToExcludeFromMandelbrotSet(new ComplexNumber(col / scalingFactor, row / scalingFactor));
             }
         }
 

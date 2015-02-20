@@ -10,7 +10,7 @@ public class MandelbrotUtilities {
     private static final int MANDELBROT_ATTEMPTS = 1000;
 
     /**
-     * Runs iterations from Z(0) -> Z(n) to see if the absolute value of z ever
+     * Runs iterations from Z(0) -> Z(n) to see if the absolute value of Z(i) ever
      * exceeds 2.  If it does, it can be proven that the sequence grows to infinity,
      * and is not in the Mandelbrot Set.
      *
@@ -18,7 +18,7 @@ public class MandelbrotUtilities {
      * It holds that Z(i) = Z(i-1)^2 + C, where C is a complex number made up of a real unit and
      * an imaginary unit.
      *
-     * It follows that Z(2) = Z(1)^2 + C, Z(3) = Z(2)^2 + C, etc, etc...
+     * It follows that Z(1) = Z(0)^2 + C, Z(2) = Z(1)^2 + C, Z(3) = Z(2)^2 + C, etc, etc...
      *
      * @param c - the complex number representing C
      * @returns the number of iterations it takes to prove that the value of C is not in
