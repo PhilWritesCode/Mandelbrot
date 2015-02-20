@@ -54,6 +54,9 @@ class Mandelbrot {
          * If neither axis on the given plane is at least 1000px, we double the size of the graph.  Continue doubling
          * until at least one axis reaches 1000px.  This effectively "zooms in" on the portion of the Mandelbrot Set
          * defined by the arguments.
+         *
+         * If we change this to an 'OR' -- so that both axes are at least 1000px -- we end up with much larger images, but the
+         * processing time can also become quite long.
          */
         System.out.print(SCALING_STARTING);
         int scalingFactor = 0;

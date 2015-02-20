@@ -25,8 +25,8 @@ public class MandelbrotPanel extends JPanel {
 
         for(int row = 0; row < pixelMatrix.length; row++) {
             for (int col = 0; col < pixelMatrix[row].length; col++) {
-                //chose a color based on the number of iterations
-                //required to exclude from the Mandelbrot set
+                /*chose a color based on the number of iterations
+                required to exclude from the Mandelbrot set*/
                 g.setColor(new Color(BASE_COLOR.getRGB() * pixelMatrix[row][col]*COLOR_SCALER));
                 g.fillRect(col, row, 1, 1);
             }
