@@ -13,6 +13,7 @@ public class ComplexNumberUtilities {
      * @return the absolute value of the given number
      */
     public static double absoluteValue(ComplexNumber number) {
+        // I had been using Math.pow() to square these numbers, but it caused a large performance degradation
         return Math.sqrt(number.getRealComponent()*number.getRealComponent()
                 + number.getImaginaryComponent()*number.getImaginaryComponent());
     }

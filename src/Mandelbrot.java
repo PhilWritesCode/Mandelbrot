@@ -8,9 +8,8 @@ import java.awt.*;
 class Mandelbrot {
 
     private static final String FRAME_TITLE = "Mandelbrot Set!";
-    private static final String SCALING_STARTING = "Scaling...";
     private static final String PROCESSING_STARTING = "Processing...";
-    private static final String SEGMENT_COMPLETE = "done!";
+    private static final String PROCESSING_COMPLETE = "done!";
 
 
     /**
@@ -57,8 +56,7 @@ class Mandelbrot {
          * If we change this to an 'OR' and Math.min() -- so that both axes are at least 1000px -- we end up with much larger images, but the
          * processing time can also become quite long.
          */
-        System.out.print(SCALING_STARTING);
-        double scalingFactor = 0;
+        double scalingFactor = 1;
         double graphWidth = lowerRightReal - upperLeftReal;
         double graphHeight = upperLeftImaginary - lowerRightImaginary;
 
@@ -69,9 +67,9 @@ class Mandelbrot {
             lowerRightReal *= scalingFactor;
             lowerRightImaginary *= scalingFactor;
         }
-        System.out.println(SEGMENT_COMPLETE);
 
         int[][] pixelMatrix = generatePixelMap(upperLeftReal, upperLeftImaginary, lowerRightReal, lowerRightImaginary, scalingFactor);
+
         createAndShowGUI(pixelMatrix);
     }
 
@@ -95,7 +93,7 @@ class Mandelbrot {
             }
         }
 
-        System.out.println(SEGMENT_COMPLETE);
+        System.out.println(PROCESSING_COMPLETE);
 
         return pixelMatrix;
     }
