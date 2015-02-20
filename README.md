@@ -1,9 +1,7 @@
 # Mandelbrot
 Graph the Mandelbrot Set
 
-This application was inspired by Jonathan Coulton's "Mandelbrot Set".  IF you haven't heard it, I recommend it -- it's pretty catchy (warning: it's not a vulgar song, but there's a random F-bomb in the chorus).
-
-The application	displays the Mandelbrot Set for bounds passed as arguments:
+  The application	displays the Mandelbrot Set for bounds passed as arguments:
 
  	args[0] = upper left real point on the Complex plane
  	args[1] = upper left imaginary point on the Complex plane
