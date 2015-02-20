@@ -5,12 +5,12 @@ This application was inspired by Jonathan Coulton's "Mandelbrot Set".  IF you ha
 
 The application	displays the Mandelbrot Set for bounds passed as arguments:
 
- 	args[0] = upper left real point on the Complex plane
- 	args[1] = upper left imaginary point on the Complex plane
- 	args[2] = lower right real point on the Complex plane
- 	args[3] = lower right imaginary point on the Complex plane
+args[0] = upper left real point on the Complex plane
+args[1] = upper left imaginary point on the Complex plane
+args[2] = lower right real point on the Complex plane
+args[3] = lower right imaginary point on the Complex plane
 
- 	Complex Plane:
+Complex Plane:
  	                  ^
  	(args[0],args[1]) |
  	                  |
