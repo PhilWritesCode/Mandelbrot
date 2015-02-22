@@ -31,5 +31,7 @@ Screenshot
 ---
 ![Mandelbrot](http://i.imgur.com/bUITTrd.png)
 
-Disclaimer:  In researching the mathematics of complex numbers during the early phases of this application, I stumbled upon http://www.cs.unc.edu/~stotts/144/assignments/1/.  That site defines an assignment for what appears to be a UNC Computer Science class.  Since it dealt with exactly what I was trying to write, I used it as a guideline for my program -- you'll notice my input parameters are in the same format.  I did not attend UNC, and all code within this application is my own.
+Disclaimer
+---  
+In researching the mathematics of complex numbers during the early phases of this application, I stumbled upon http://www.cs.unc.edu/~stotts/144/assignments/1/.  That site defines an assignment for what appears to be a UNC Computer Science class.  Since it dealt with exactly what I was trying to write, I used it as a guideline for my program -- you'll notice my input parameters are in the same format.  I did not attend UNC, and all code within this application is my own.
 
